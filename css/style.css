@@ -1,0 +1,1222 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {         
+  padding: 0;  
+  border: 0; 
+  margin: 0;
+  
+  font-size: 100%;
+  font: inherit; 
+  vertical-align: baseline;
+} 
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'PT Serif', serif; /* ОСНОВНОЙ ШРИФТ*/
+
+  /*font-family: 'Roboto', sans-serif; /* Дополнительный - подкл. Поблочно*/
+
+  font-weight: 400; /*normal или Regular*/
+  font-size: 14px;
+  line-height: 18px;
+  color: #5e5e5e; 
+/*__________________________________________________________________*/
+   /*font-family: Verdana, sans-serif, 'Times New Roman', Arial;*/
+   /*font-style: normal;*/
+   /*font-size: 14px;*/
+   /*line-height: 18px;*/
+   /*color: black;  */
+
+   /*background-image: url(1400x0.jpg);*/
+   /*background-repeat: no-repeat;*/
+   /*background-size: cover;*/
+/*___________________________________________________________________*/
+}
+
+a {
+  text-decoration: none; /*убрали подчеркивание*/
+  display: inline-block; /*строчно-блочная*/
+}
+
+ul, li {
+  list-style: none; /*Удаление маркеров нумерации*/
+}
+/*_____________________________________________________________________*/
+.wrapper {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 15px; /*чтобы контейнер не прилипал к стенкам ГАДЖЕТОВ
+                    на малой ШИРИНЕ (меньше 1920)*/
+
+  /*background-color:#CEF6F5; */
+  /*height: 100vh;*/
+ }
+/*______________________________________________________________________*/
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;  /*чтобы контейнер не прилипал к стенкам ГАДЖЕТОВ
+                    на малой ШИРИНЕ (меньше 1170)*/
+}
+/*______________________________________________________________________*/
+
+.header {
+ font-family: 'Roboto', sans-serif;
+}
+
+.header__top {
+  background-color: #303030;
+  /*height: 45px; */ /*Можно задать ВЫСОТУ ЧЕРНОЙ ПОЛОСЫ ЧЕРЕЗ height: 45px;*/                   на малой ШИРИНЕ (меньше 1170)*/
+}
+
+/*_____Чтобы на ДОЧЕРНЕМ ЭЛЕМЕНТЕ (.header__btn)
+          float РАБОТАЛ КОРРЕКТНО и НЕ СДВИГАЛСЯ ПО ВЫСОТЕ
+                 для РОДИТЕЛЯ (.header__contacts) пишем ПСЕВДОЭЛЕМЕНТ_________*/
+.header__contacts::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/*____________________________*/
+
+.header__btn {
+  float: right;
+
+  font-size: 16px;
+  line-height: 36px;
+ 
+  color: #1b1b1b;
+  background-color: #ffc222;
+  padding: 5px 20px 4px 50px;
+
+   position: relative; /*Задаем чтбы вставить ПСЕВДОЭЛЕМЕНТ-иконку
+                      (.header__btn ::before)*/
+}
+
+.header__btn::before { /* ПСЕВДОЭЛЕМЕНТ-иконка -телефон*/
+  /*Для правильного позиионипрования Псевдоэлемента*/
+   position: absolute; 
+   left: 20px; /* Сначала, ЧТОБЫ УВИДЕТЬ ПСЕВДОЭЛЕМЕНТ- left: 0;*/
+   
+   content: "\f0b1";       /* Копируем из ico-fonts.css*/
+   font-family: 'icomoon'; /* Копируем из ico-fonts.css*/
+   
+   color: #1b1b1b;
+ }
+
+/*_________________________________________________________________________*/
+
+.header__phone, .header__email {
+  color: #cbcacb;
+  letter-spacing: 0.25px;
+  line-height: 45px;  /*Можно задать ВЫСОТУ
+                          ЧЕРНОЙ ПОЛОСЫ ЧЕРЕЗ-line-height: 45px;*/
+  position: relative; /*Задаем чтбы вставить ПСЕВДОЭЛЕМЕНТЫ-иконки
+                      (.header__phone::before И .header__email::before)*/
+}
+
+ .header__phone {         
+  padding-left: 20px;
+  padding-right: 30px;
+ }
+/*_______________________________________________________________________*/
+ .header__phone::before {/* ПСЕВДОЭЛЕМЕНТ-иконка -телефон*/ 
+/*Для правильного позиионипрования Псевдоэлемента*/
+   position: absolute; 
+   left: 0;
+
+   content: "\f095";       /* Копируем из ico-fonts.css*/
+   font-family: 'icomoon'; /* Копируем из ico-fonts.css*/
+   
+   color: #ffc222; 
+ }
+
+ .header__email::before { /* ПСЕВДОЭЛЕМЕНТ-иконка -телефон*/
+/*Для правильного позиионипрования Псевдоэлемента*/
+   position: absolute; 
+   left: 0;
+
+   content: "\f003";       /* Копируем из ico-fonts.css*/
+   font-family: 'icomoon'; /* Копируем из ico-fonts.css*/
+   
+   color: #ffc222;   
+ }
+ /*________________________________________________________________________*/
+
+ .header__email {
+  padding-left: 24px;
+ }
+
+.header__content {
+  padding: 34px 0px 23px;
+}
+
+/*чтобы применить flexbox для .header__logo и .menu
+поставим их внутрь РОДИТЕЛЬСКОГО контейнера .header__content-inner  */
+.header__content-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+}
+
+.menu li {
+  display: inline-block; /* Элементы <li> - выстраиваются В ЛИНИЮ,
+  но ведут себя как БЛОЧНЫЕ ЭЛЕМЕНТЫ - их можно стилизовать*/
+  padding-left: 10px; 
+}
+
+.menu a {
+  font-size: 16px;
+  line-height: 36px;
+  color: #323232;
+
+  border: 1px solid transparent;
+  padding: 0px 16px;
+}
+
+.menu a:hover {
+  border-color: #ffc222;
+  transition: all 0.5s;
+}
+
+/*__________________________МОДАЛЬНОЕ ОКНО_______________________*/
+#modal{
+  display: none; 
+  width: 300px;
+}
+
+#modal input {
+  display: block;
+  width: 100%; 
+  margin-bottom: 20px;
+  height: 40px;
+
+  outline: none;
+  padding: 0 10px;
+  border: 1px solid #e6e6e6;
+
+   font-family: 'Roboto', sans-serif;
+   font-weight: 500;
+}
+
+#modal input[type="submit"] {
+  background-color:  #ffc222;
+  border: none;
+}
+
+/*_______________________________________________________________*/
+
+/*_____________________Верхняя секция СЛАЙДЕР____________________*/
+.slider {
+  background-image: url(../img/slider-fon.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 500px;
+  /*Высота рис. в макете 495px. - min-height: 500px; необходимо задавать,
+   чтобы ПРИ ИЗМЕНЕНИИ РАЗМЕРОВ ЭКРАНА 
+   изображение правильно распологалось на странице*/
+}
+
+/*<div class="slider__item-content"> был вложен в РОДИТЕЛЯ 
+                                                  <div class="slider__item">
+чтобы задать  - max-width: 665px;
+
+Если прописать в РОДИТЕЛЕ (<div class="slider__item"> -который прокручивается)
+ max-width, - НА ЭКРАНЕ ПОВИТСЯ НЕ ОДИН СЛАЙДЕР, а еще куски 2 и 3 слайдеров */
+.slider__item-content {
+  text-align: center; /*Центруем текст - по центру(ГОРИЗОНТАЛЬ)блока */
+  padding-top: 120px;
+  margin: 0 auto; /*выравниваем БЛОК по центру*/
+
+  max-width: 665px;   
+}
+/*___________________________________________________________________________*/
+
+.slider__title {
+  text-transform: uppercase; /*трансформирует БУКВЫ -ВСЕ ЗАГЛАВНЫЕ*/
+
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 500; 
+  font-size: 30px;
+  line-height: 36px;
+  letter-spacing: .5px;
+  color: #ffffff; 
+  margin-bottom: 25px;
+}
+
+.slider__text {
+  font-size: 18px;
+  line-height: 24px;
+  /*letter-spacing: .5px;*/
+  color: #d3d2d2; 
+  margin-bottom: 50px;
+}
+
+.default-btn {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 500; 
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: .25px;
+  color: #ffffff; 
+
+  display: inline-block; /* ОСНОВА - Элементы - ВЫСТРАИВАЮТСЯ В ЛИНИЮ
+  но их МОЖНО Стилизовать как БЛОЧНЫЕ */
+
+  padding: 8px 30px 8px 24px; /*изначально прав. padding = 50px;
+  но нам справа нужна не граница, а ПРЯМОУГОЛЬНИК*/
+
+  border: 1px solid #ffc222; /*ВСЕ Граници-толцина 1px; сплошная; Желтая */
+  border-right-width: 20px; /*а ПРАВАЯ ГРАНИЦА -толцина 20px;*/
+
+  outline: none; /* Убираем СИНИЙ квадватик после нажатия кнопки*/
+
+  position: relative; /*Задаем чтбы вставить ПСЕВДОЭЛЕМЕНТ-иконку
+                      (.default-btn::before)*/
+}
+/*___________________________________________________________________________*/
+
+.default-btn::before {/* ПСЕВДОЭЛЕМЕНТ-иконка -стрелка-вправо*/  
+/*Для правильного позиионипрования Псевдоэлемента*/
+   position: absolute; 
+   
+/*__ЦЕНТРУЕМ стрелку ГОРИЗОНТАЛЬНО - ПРИ ЛЮБОМ ИЗМЕНЕННИ РАЗМЕРОВ КОНТЕЙНЕРА__*/
+
+   top: 50%; /* Изначально прибьет стрелку К НИЗУ КОНТЕЙНЕРА*/
+
+   transform: translateY(-50%); /*сдвиг по оси Y- OТРИЦАТЕЛЬНOЕ ЗНАЧЕНИE- 
+                                  сдвиг Вверх - (-50%) К СЕРЕДИНЕ КОТЕЙНЕРА.
+
+Трансформации  (transform:);  - СДВИГАЮТ элемент, не затрагивая 
+остальные элементы веб-страницы, т.е. другие элементы не сдвигаются
+относительно него.
+ПОЛОЖИТЕЛЬНЫЕ ЗНАНАЧЕНИЯ - сдвиг ВПРАВО (X) и  ВНИЗ (Y);
+OТРИЦАТЕЛЬНЫЕ ЗНАЧЕНИЯ    - сдвиг Влево (X) и Вверх (Y). 
+_______________________________________________________________________*/
+
+   right: -12px; /* Изначально right: 0px; - ТОгда стрелка будет
+                       "Оставить заявку >" ,
+        А нам нужно сдвинуть стрелку ВПРАВО ЗА ПРЕДЕЛЫ БЛОКА*/
+
+  font-family: 'icomoon'; /* Копируем из ico-fonts.css*/
+  content: "\f105";       /* Копируем из ico-fonts.css*/
+
+  color: #ffffff;
+}
+
+
+/*_____________________________________________________________________*/
+
+/*Кнопки-ПРОКРУТКИ "Previous" и "Next", удаленные из кода в main.js -
+                          ПРЕВРАЩАЕМ В СТРЕЛКИ*/
+
+
+.slider__inner { /* из index.html*/
+  position: relative; /* Для РОДИТЕЛЯ*/
+} 
+
+.slick-btn { /* из main.js - класс ДЛЯ ОБЕИХ КВАДРАТИКОВ*/
+  position: absolute; /* размещаем НАД Родителем*/
+
+  top: 70%; /* изначально top: 50%; - будет посередине блока, 
+                                   а мы чуть сдвинули ПОСЕРЕДИНЕ-ВНИЗ*/
+  z-index: 3; /* если не задать z-index - Для ОБОИХ КНОПОК, 
+                                              левая НЕ будет РАБОТАТЬ*/
+
+       /*___Рисуем КВАДРАТИКИ ДЛЯ ВНУТРИ КОТОРЫХ БУДУТ СТРЕЛКИ____*/
+    width: 40px;
+    height: 40px;
+    border: 1px solid  #ffffff;
+
+    background-color: #ffc222; /* Изначально ОБЕ КНОПКИ ЖЕЛТЫЕ*/
+
+    cursor: pointer; 
+
+    outline: none; /* Убираем СИНИЙ квадватик после нажатия кнопки*/
+}
+
+/*____________________________________________________________________________*/
+/*Как только в main.js - мы отменяем БЕСКОНЕЧНУЮ ПРОКРУТКУ (стр. 30)
+На сайте (F12) - под кодом index.html (стр. 121) - jQuery автоматом прописывает код:
+
+<button type="button"
+ class="slick-btn slick-prev slick-arrow slick-disabled" aria-disabled="true"
+ style=""></button>
+
+Появляется новый класс class="slick-disabled"  */
+
+.slick-btn.slick-disabled { /* Св-ва задаются КОГДА ДВА КЛАССА ВМЕСТЕ -
+  в самом начале ЛЕВАЯ КНОПКА НЕ АКТИВНА (НЕТ ПРОКРУТКИ ВЛЕВО)*/
+  cursor: default; /* по дефолту курсор- РУКА стр. 353 - меняем на СТРЕЛКУ*/
+  background-color: transparent ;/* Изначально ОБЕ КНОПКИ ЖЕЛТЫЕ стр. 351
+                                                   - меняем на ПРОЗРАЧНЫЙ*/
+}
+/*____________________________________________________________________________*/
+
+
+.slick-btn::before {/* ПСЕВДОЭЛЕМЕНТ- ЦЕНТРИРУЕМ СТРЕЛКИ 
+                                   ВНУТРИ КВАДРАТИКОВ ПО ЦЕНТРУ ПО ДВУМ ОСЯМ
+                      ПРИ ЛЮБОМ ИЗМЕНЕННИ РАЗМЕРОВ КОНТЕЙНЕРА */
+  position: absolute; /* размещаем НАД Родителем*/
+
+   top: 50%; 
+   left: 50%; /* Изначально прибьет стрелку К НИЗУ КОНТЕЙНЕРА - по X и Y*/
+
+   /*Трансформации  (transform:);  - СДВИГАЮТ элемент, не затрагивая 
+остальные элементы веб-страницы, т.е. другие элементы не сдвигаются
+относительно него.*/
+   
+   transform: translate(-50%, -50%); 
+/*OТРИЦАТЕЛЬНЫЕ ЗНАЧЕНИЯ - сдвиг Влево (X) и Вверх (Y)
+_________________________________________________________________________*/
+                       /*для ОБОИХ СТРЕЛОК*/
+
+ font-family: 'icomoon'; /* Копируем из ico-fonts.css*/
+ color: #ffffff;
+}
+             
+.slick-next { /* из main.js*/
+  right: 0; /* ПРАВЫЙ - КВАДРАТИК -прибиваем к ПРАВОМУ краю*/ 
+}
+        
+.slick-prev { /* из main.js*/
+  left: 0; /* ЛЕВЫЙ - КВАДРАТИК -прибиваем к ЛЕВОМУ краю*/ 
+}
+
+.slick-next::before { /* ПСЕВДОЭЛЕМЕНТ-иконка -стрелка-ВПРАВО*/
+/*Для правильного позиионипрования Псевдоэлемента*/
+  position: absolute; 
+  content: "\f105";       /* Копируем из ico-fonts.css*/
+}
+
+.slick-prev::before { /* ПСЕВДОЭЛЕМЕНТ-иконка -стрелка-ВЛЕВО*/
+/*Для правильного позиионипрования Псевдоэлемента*/
+  position: absolute; 
+  content: "\f104";       /* Копируем из ico-fonts.css*/ 
+}
+/*___________________________________________________________________________*/
+
+                      /*СЕРЕДИНА - Наши Услуги*/
+
+.services {
+  padding: 50px 0px 30px 0px;
+}
+
+.services__top,
+.news__top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  margin-bottom: 60px;
+}
+
+.services__title-box,
+.news__title-box {
+  max-width: 520px;
+  padding-left: 140px;
+  position: relative; /*чтобы вставить желтую линию слева как ПСЕВДОЭЛЕМЕНТ*/
+}
+
+.services__title-box::before,
+.news__title-box::before { /*желтая линию слева как ПСЕВДОЭЛЕМЕНТ*/
+  position: absolute;
+  content: '';
+  left: 0; /*линию смещаем ВЛЕВО*/
+  top: 12px; /*линию смещаем ВНИЗ чтобы была ПОСЕРЕДИНЕ ВЫСОТЫ ТЕКСТА*/
+
+  width: 105px;
+  height: 2px;
+  background-color: #ffc222;
+  }
+
+.services__title,
+.news__title {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 500; 
+  font-size: 24px;
+  line-height: 24px;
+  color: #212020;
+  margin-bottom: 10px;
+}
+
+.services__text,
+.news__text {
+  letter-spacing: 0.1px;
+}
+
+.services__btn a,
+.news__btn a { /*Изначально сылка сама имела этот класс: 
+  <a class="about__btn" href="#" >Показать все услуги</a>, но класс
+    .about__title-box  и .about__btn - участвуют во flex-конструкции - 
+    и имеют ОДИНАКОВУЮ БОЛЬШУЮ ВЫСОТУ - ЧТОБЫ ССЫЛКА ИМЕЛА
+    МЕНЬШУЮ(НУЖНУЮ НАМ ВЫСОТУ) - стили прописываем для нее -ВЛОЖЕННОЙ В 
+    КЛАСС  - .about__btn a */ 
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.25px;
+  color: #373636;
+
+  padding: 8px 40px 8px 40px;
+  border: 3px solid #e6e6e6;
+}
+
+                         /*СЕРЕДИНА - блоки с тенями*/
+
+.services__items {
+   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  margin-bottom: 35px;
+}
+
+.services__item {
+  max-width: 360px; /*Меряем в макете КВАДРАТ БЕЗ ТЕНИ*/
+  min-height: 375px; /*Меряем в макете КВАДРАТ БЕЗ ТЕНИ*/
+
+  text-align: center; /* ВЫРАВНИВАНИЕ текста в БЛОКЕ - по центру */
+  padding: 30px 0px 80px 0px;
+
+  position: relative; /* Делаем чтобы ВЫРАВНЯТЬ .about__item-btn 
+  [иначе происходит прыжок В СРЕДНЕМ БЛОКЕ] (для этого 
+  делаем его position: absolute; - стр.528) */
+
+  background-color: #f9f9f9;
+  box-shadow: 0px 7px 24.3px 2.7px rgba(91, 89, 89, 0.14);
+  /*в PS выделяем блок с ТЕНЬЮ
+                       - в слое ПКМ - Копировать CSS - (вставить сюда Сtrl+V*/
+}
+
+.services__item-title {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 500; 
+  font-size: 18px;
+  line-height: 24px;
+  color: #212020;
+  padding: 24px 0px 24px 0px;
+}
+
+.services__item-text {
+  letter-spacing: 0.1px;
+  padding-left: 30px;
+  padding-right: 30px; 
+  padding-bottom: 30px;
+}
+
+.services__item-btn {
+  position: absolute;
+  bottom: 40px;
+
+  left: 0;/* если применить ОБА right @ left = 0,  то "Подробнее" и "Заказать" -
+  СХЛОПНУТСЯ ПОСЕРЕДИНЕ - чтобы ИХ РАЗДВИНУТЬ  - стр 553*/
+  right: 0;
+}
+
+/*изначально .default-btn {color: #ffffff;}, Чтобы НА ДАННОЙ ПОЗИЦИИ 
+он стал темным - нужно сделать запись: */ 
+.services__item-btn .default-btn { /* обращаемся к классу с
+ именем .default-btn, ТОЛЬКО если он находится ВНУТРИ тега с 
+ классом class="services__item-btn" */
+  color: #373636;
+}
+
+.services__item-link {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 400; 
+  font-size: 14px;
+  line-height: 18px;
+  color: #050505;
+
+  text-decoration: underline;
+
+  margin-right: 60px;
+}
+/*__________________________________________________________________________*/
+                               /*О КОМПАНИИ */
+.about {
+  background-image: url(../img/about-fon.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  min-height: 300px;/*Cмотрим ВЫСОТУ, когда сохраняем for Web в макете.
+  Если не задать высоту - рис. станет на сайте НЕ В ПОЛНЫЙ РАЗМЕР*/  
+
+  padding: 25px 0px 45px 0px;  
+}
+
+.about__inner {
+  max-width: 545px;
+}
+
+.about__title {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 500; 
+  font-size: 24px;
+  line-height: 24px;
+  color: #ffffff; 
+  padding-top: 40px;
+}
+
+.about__text {
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: .1px;
+  color: #d3d2d2; 
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+
+/*изначально ПСЕВДОЭЛЕМЕНТ-иконка -стрелка-вправо (стр.299)
+.default-btn::before {color: #ffffff;}, Чтобы НА ДАННОЙ ПОЗИЦИИ 
+он стал темным - нужно сделать запись: */ 
+.about__btn.default-btn::before { /* когда св-во задано ДВУМ КЛАССАМ ВМЕСТЕ!!!
+(ПИШЕМ БЕЗ ПРОБЕЛА МЕЖДУ НАЗВАНИЯМИ КЛАССОВ*/
+  color: #303030;
+}
+
+/*______________________________________________________________________________*/
+                                  /*ФОРМА*/
+
+.form__title-box {
+  max-width: 520px;
+  padding-left: 140px;
+  position: relative; /*чтобы вставить желтую линию слева как ПСЕВДОЭЛЕМЕНТ*/
+}
+
+.form__title-box::before { /*желтая линию слева как ПСЕВДОЭЛЕМЕНТ*/
+  position: absolute;
+  content: '';
+  left: 0; /*линию смещаем ВЛЕВО*/
+  top: 12px; /*линию смещаем ВНИЗ чтобы была ПОСЕРЕДИНЕ ВЫСОТЫ ТЕКСТА*/
+
+  width: 105px;
+  height: 2px;
+  background-color: #ffc222;
+  }
+
+.form__title {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 500; 
+  font-size: 24px;
+  line-height: 24px;
+  color: #212020;
+  margin-bottom: 10px;
+}
+
+.form__text {
+  letter-spacing: 0.1px;
+}
+
+.form {
+  padding-top: 30px;
+}
+
+.form__inner {
+  padding-bottom: 40px;
+                          /*Вставляем рис. Девушки как background*/
+  background-image: url(../img/form-fon.png);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  min-height: 480px; /*Cмотрим ВЫСОТУ, когда сохраняем for Web в макете.
+  Если не задать высоту - рис. станет на сайте НЕ В ПОЛНЫЙ РАЗМЕР*/  
+}
+
+.form__box {
+  max-width: 850px;
+  padding-top: 45px;
+}
+
+.form__box-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form__box-left {
+  max-width: 260px;
+  width: 100%; /*Если на сайте НЕ РАСШИРЯЕТСЯ до нужного значения (260px)
+  Прописываем  - width: 100%; */
+}
+
+.form__box-right {
+  max-width: 555px;
+  width: 100%; /*Если на сайте НЕ РАСШИРЯЕТСЯ до нужного значения (260px)
+  Прописываем  - width: 100%; */
+}
+
+.form__box-inner label,
+.form__box-inner input,
+.form__box-inner textarea { /* .form__box-inner select  -убираем, т.к. jQuery - 
+  добавила свои классы*/
+  display: block;
+  width: 100%; /*Обязательно, ИНАЧЕ РАСШИРИТСЯ НЕПРАВИЛЬНО!!!*/
+}
+
+.form__box-inner label {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 400; 
+  font-size: 14px;
+  line-height: 36px;
+  color: #282828;
+}
+
+.form__box-inner input {
+  margin-bottom: 8px;
+  outline: none; /*Если хотим, чтобы ПОЛЕ ВВОДА
+                                        НЕ ПОДСВЕЧИВАЛОСЬ СИНИМ КВАДРАТИКОМ*/
+  height: 40px;
+  border: 1px solid #e6e6e6; 
+  padding: 0px 10px 0px 10px; /*делаем отступы, чтобы ТЕКСТ НЕ ПРИЛИПАЛ
+                                                                   К КРАЯМ РАМКИ*/
+}
+
+.form__box-inner select { /* .form__box-inner select  - КОПИРУЕМ, т.к. jQuery - 
+  добавила свои классы*/
+  outline: none; 
+  height: 40px;
+  border: 1px solid #e6e6e6; 
+  padding-left: 17px;
+}
+
+.form__box-inner textarea {
+  outline: none;
+  border: 1px solid #e6e6e6; 
+  padding: 10px;
+  height: 208px;
+
+  resize: none; /* чтобы ПОЛЬЗОВАТЕЛЬ НЕ РАСТЯГИВАЛ ТЕКСТОВОЕ ПОЛЕ*/
+  margin-bottom: 40px;
+}
+
+
+/*изначально цвет текста - белый и рамка - прозрачная (стр.275)
+.default-btn {color: #ffffff;}, Чтобы НА ДАННОЙ ПОЗИЦИИ 
+он стал темным на белом фоне- нужно сделать запись: */ 
+button.default-btn { /* когда св-во задано ДВУМ КЛАССАМ ВМЕСТЕ!!!
+(ПИШЕМ БЕЗ ПРОБЕЛА МЕЖДУ НАЗВАНИЯМИ КЛАССОВ*/
+  color: #303030;
+  background-color: transparent; 
+}
+
+/*изначально ПСЕВДОЭЛЕМЕНТ-иконка -стрелка-вправо (стр.299)
+.default-btn::before {color: #ffffff;}, Чтобы НА ДАННОЙ ПОЗИЦИИ 
+он стал темным - нужно сделать запись: */ 
+button.default-btn::before { /* когда св-во задано ДВУМ КЛАССАМ ВМЕСТЕ!!!
+(ПИШЕМ БЕЗ ПРОБЕЛА МЕЖДУ НАЗВАНИЯМИ КЛАССОВ*/
+  color: #303030;
+}
+
+.form__box-inner button {
+  float: right;
+}
+
+/*Cтилизация РАССКРЫВАЮЩЕГОСЯ СПИСКА стр. 297 html(ВМЕСТО ТЕУГОЛЬНИКА - ГАЛОЧКА)
+
+ Как только был прописан код стр. 50 в файле main.js - ВСЯ СТИЛИЗАЦИЯ select 
+ ПЕРЕСТАЕТ РАБОТАТЬ!!! (стр. 670, 712)
+ Потому, что jQuery библиотека ДОБАВИЛА АВТОМАТОМ ДОПОЛНИТЕЛЬНЫЕ КЛАССЫ - 
+ html коду - стр. 301-306 - эти классы видны В БРАУЗЕРЕ (F12)*/
+
+ /*т.к. НОВЫЕ КЛАССЫ находятся внутри влока с классом .form__box-inner
+                         ВЕЗДЕ ЕГО СТАВИМ НАПЕРЕД 
+В принципе это можно и не делать, но если на другой странице нужно будет применять
+стилизацию ф-мы и менять что-то внутри классов фо-мы - то стилизация слезет*/
+
+.form__box-inner .jq-selectbox.jqselect {/*в html 2 КЛАССА: jq-selectbox и jqselect*/
+  display: block;
+  width: 100%; /*Обязательно, ИНАЧЕ РАСШИРИТСЯ НЕПРАВИЛЬНО!!!*/
+}
+
+.form__box-inner .jq-selectbox__select {
+  outline: none; 
+  height: 40px;
+  border: 1px solid #e6e6e6; 
+  border-radius: 0;
+  padding-left: 17px;
+  /*background: transparent;*/
+  /*box-shadow: none;*/
+}
+
+.form__box-inner .jq-selectbox__trigger-arrow::before {
+  /* ПСЕВДОЭЛЕМЕНТ-иконка -стрелка-вправо - копируем из стр. 299 - 
+  СТРЕЛКУ БУДЕМ ПОВОРАЧИВАТЬ ВНИЗ*/
+
+/*Для правильного позиионипрования Псевдоэлемента*/
+   position: absolute; 
+   /*______________________________*/
+   top: 0;  
+   transform: rotate(90deg);   
+/*__СТРЕЛКУ ПОВЕРНУЛИ ВНИЗ__*/
+
+   right: 15px; /* А нам нужно сдвинуть стрелку ВПРАВО ЗА ПРЕДЕЛЫ БЛОКА*/
+
+  font-family: 'icomoon'; /* Копируем из ico-fonts.css*/
+  content: "\f105";       /* Копируем из ico-fonts.css*/
+
+  color: blue;
+}
+
+/*___________СТИЛИЗУЕМ ВЫПАДАЮЩЕЕ ОКНО С ВОПРОСАМИ - копируем__________________
+ стиль из jquery.formstyler.theme.css стр. 253*/
+.form__box-inner .jq-selectbox__dropdown {
+  box-sizing: border-box;
+  width: 100%;
+  margin: 2px 0 0;
+  padding: 0;
+  border: 1px solid  #e6e6e6; /*ставим наш цвет*/
+  /*border-radius: 4px;*/
+  background: #FFF;
+  box-shadow: 0 2px 10px rgba(0,0,0,.2);
+  /*font: 14px/18px Arial, sans-serif;*/
+}
+
+/*копируем__________________
+ стиль из jquery.formstyler.theme.css стр. 289-318*/
+.form__box-inner .jq-selectbox li {
+  min-height: 18px;
+  padding: 5px 17px 6px; /*10 меняем на 17*/
+  color: #FFF;
+  color: #231F20;
+}
+.form__box-inner .jq-selectbox li.selected {
+  background-color: blue; /*ставим наш цвет*/
+  color: #FFF;
+}
+.form__box-inner .jq-selectbox li:hover {
+  background-color: #08C;
+  color: #FFF;
+}
+.form__box-inner .jq-selectbox li.disabled {
+  color: #AAA;
+}
+.form__box-inner .jq-selectbox li.disabled:hover {
+  background: none;
+}
+.form__box-inner .jq-selectbox li.optgroup {
+  font-weight: bold;
+}
+.form__box-inner .jq-selectbox li.optgroup:hover {
+  background: none;
+  color: #231F20;
+  cursor: default;
+}
+.form__box-inner .jq-selectbox li.option {
+  padding-left: 25px;
+}
+/*____________ТОЛЬКО ПОСЛЕ ПЕРЕНОСА нужных классов  со стилями - ОТКЛЮЧАЕМ________ 
+_________________файл jquery.formstyler.theme.cssyle.css
+          если отключить сразу - ДАННЫЕ КЛАССЫ В БРАУЗЕРЕ БУДУТ НЕВИДНЫ________*/
+
+/*_____________________________________________________________________________*/
+                   /*БЛОК <secnion class="advantages">*/
+
+.advantages {
+  padding: 55px 0px 40px 0px;
+  background-image: url(../img/adv-fon.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 287px;
+}
+
+.advantages__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.advantages-item {
+  max-width: 370px; /*Меряем в макете, если на сайте что-то по ширине
+  НЕ СТАНОВИТСЯ - ДОБАВЛЯЕМ ШИРИНУ здесь */
+  padding: 0px 20px;
+}
+
+.advantages__text {
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: .1px;
+  color: #d3d2d2; 
+  text-align: center;
+}
+
+.advantages__title {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 500; 
+  font-size: 18px;
+  line-height: 24px;
+  color: #ffffff; 
+  text-align: center;
+
+  padding-top: 67px;  /*до ВЕРХА КВАДРАТИКА*/
+  padding-bottom: 20px;  /*до мелкого текста*/
+
+  position: relative; /* РОДИТЕЛЬ - ПСЕВДОЭЛЕМЕНТОВ*/ 
+}
+
+           /*___Рисуем КВАДРАТИКИ ДЛЯ ВНУТРИ КОТОРЫХ БУДУТ ГАЛОЧКИ____*/
+
+.advantages__title::before {/* ПСЕВДОЭЛЕМЕНТ - КВАДРАТИК*/ 
+  content: '';
+  position: absolute; /* размещаем НАД Родителем*/
+
+  width: 40px;
+  height: 40px;
+  border: 2px solid  #ffc222;
+  background-color: transparent;
+
+   z-index: 3;  /*если не задать z-index - КВАДРАТИКИ СХЛОПНУТСЯ */   
+
+  top: 0%; 
+  left: 45%; /* 1) Изначально ЦЕНТРУЕМ ПОСЕРЕДИНЕ БЛОКА*/
+
+   /*Трансформации  (transform:);  - СДВИГАЮТ элемент, не затрагивая 
+остальные элементы веб-страницы, т.е. другие элементы не сдвигаются
+относительно него.*/
+   
+   transform: translateY(-10%); /* 2) СДВИГАЕМ ВВЕРХ - значение подгоняем -
+   смотря В БРАУЗЕРЕ - F12 */
+        /*OТРИЦАТЕЛЬНЫЕ ЗНАЧЕНИЯ - сдвиг Влево (X) и Вверх (Y)*/
+}
+
+
+.advantages__title::after { /*ПСЕВДОЭЛЕМЕНТ - Check - это второй псевдоэлемент
+ в родителе (можно еще раз написать ::before - без разници)*/ 
+  position: absolute;  /*размещаем НАД Родителем*/ 
+
+  font-family: 'icomoon';
+  content: "\f00c";
+  font-size: 14px;
+
+  color: white;
+
+  z-index: 3;  
+  top: 9px; 
+  left: 49%; /* 1) Изначально ЦЕНТРУЕМ ПОСЕРЕДИНЕ БЛОКА*/
+
+   /*Трансформации  (transform:);  - СДВИГАЮТ элемент, не затрагивая 
+остальные элементы веб-страницы, т.е. другие элементы не сдвигаются
+относительно него.*/
+   
+   transform: translateY(-30%); /* 2) СДВИГАЕМ ВВЕРХ - значение подгоняем -
+   смотря В БРАУЗЕРЕ - F12 */
+        /*OТРИЦАТЕЛЬНЫЕ ЗНАЧЕНИЯ - сдвиг Влево (X) и Вверх (Y)*/
+}
+
+/*____________________________________________________________________________*/
+                            /*НОВОСТИ КОМПАНИИ*/
+/*Для стилизации классов: news__top, news__title-box, news__title, news__text,
+  news__btn- добавим их ЧЕРЕЗ ЗАПЯТУЮ к cтилям на стр. 426-464- т.к они одинаковые*/
+.news {
+  padding-top: 55px;
+  padding-bottom: 110px; /*от блока с тенью до низа контейнера*/
+
+  background-color: #f9f9f9;
+}
+
+/*_________________Все, что нужно для правильной работы FLEX -BOX*/
+.news__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.news__slider {
+  max-width: 555px;
+  width: 100%
+  
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 5px 15.36px 0.64px rgba(128, 127, 127, 0.13);
+  /*в PS выделяем блок с ТЕНЬЮ
+                       - в слое ПКМ - Копировать CSS - (вставить сюда Сtrl+V*/
+  padding: 60px 35px 45px 70px;
+
+  position: relative; /* Контейнер для  ПСЕВДОЭЛЕМЕНТА (Кавычки)*/
+}
+
+.news__blog {
+  max-width: 260px;
+  width: 100%
+}
+/*____________________ПСЕВДОЭЛЕМЕНТ (Кавычки) - как РИСУНОК________________*/
+/*.news__slider::before {
+        content: '';
+        position: absolute;
+
+        background-image: url(../img/quotes.png);
+        background-repeat: no-repeat;*/
+  /*Ширина и Высота - ОБЯЗАТЕЛЬНО -т.к. Браузер по умолчанию дает 0px на 0px*/
+ 
+  /*    width: 65px;
+        height: 31px;
+
+        top: 0;
+        left: 70px;
+}*/
+
+/*____________________ПСЕВДОЭЛЕМЕНТ (Кавычки) - как ИКОНОЧНЫЙ ШРИФТ_____________*/
+.news__slider::before {
+  content: '';
+  position: absolute;
+            /*Делаем Желтый Прямоугольник*/
+  width: 65px;
+  height: 31px;
+  /*Ширина и Высота - ОБЯЗАТЕЛЬНО -т.к. Браузер по умолчанию дает 0px на 0px*/
+
+  background-color: #ffc222;
+  
+  top: 0;
+  left: 70px;
+              /*Двигаем КАВЫЧКИ внутри желтого Прямоугольника*/
+  font-family: 'icomoon';
+  content: "\f10e"; 
+
+  color: #f9f9f9;
+  font-size: 16px;
+
+   /*Чтобы Кавычки были ТОЧНО ПО ЦЕНТРУ прямоугольника - нужно чтобы:
+            height (стр. 984) = line-height */
+  text-align: center;
+  line-height: 31px;
+}
+
+/*_____________________________________________________________________*/
+.news__slider-title {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 500; 
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #242424; 
+  padding-bottom: 15px;
+}
+
+.news__slider-text {
+  letter-spacing: .1px;
+  color: #5e5e5e; 
+  padding-bottom: 25px;
+}
+
+.news__slider-author {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 500; 
+
+  letter-spacing: .1px;
+  color: #212020; 
+}
+
+/*____________________ПЕРОПРЕДЕЛЯЕМ КНОПКИ КАК НА МАКЕТЕ_____________________*/
+
+/*Ищем кнопки, а главное - ИХ КЛАССЫ, присвоенные jQuery - через просмотр
+кода в Браузере - F12
+
+1) класс .slick-btn - прописывается внутри класса .news__slider-inner
+
+2) класс .slick-btn {top:70%;}, а нам нужно сдвинуть кнопки за пределы блока
+   ВНИЗ - bottom: - 85px
+          [значение находим, изменяя его В ПРОСМОТРЕ КОДА] (за паределы блока)
+           и -35px (за паределы блока) [значение находим, замеряя в PS];
+3) переопределям top  - т.е. top:auto; и bottom: - 86px;*/
+
+.news__slider-inner .slick-btn {/*Для обеих кнопок*/
+  top: auto;
+  bottom: -120px;
+}
+
+/*4) ищем в браузере ПРАВУЮ КНОПКУ - класс .slick-next {right: 0}
+     а нам ее нужно сдвинуть ВРАВО ЗА ПРЕДЕЛЫ БЛОКА
+     [значение находим, изменяя его В ПРОСМОТРЕ КОДА]*/
+.news__slider-inner .slick-next {
+  right: -35px;
+}
+
+/*5) ищем в браузере ЛЛЕВУЮ КНОПКУ - класс .slick-prev {left: 0}
+     а нам ее нужно сдвинуть ВРАВО К ПРАВОЙ КНОПКЕ
+     [значение находим, изменяя его В ПРОСМОТРЕ КОДА]*/
+.news__slider-inner .slick-prev {
+  left: auto; /*переопределям left*/
+  right: 20px;
+}
+
+/* 6) Св-ва задаются КОГДА ДВА КЛАССА ВМЕСТЕ -
+      в самом начале ЛЕВАЯ КНОПКА НЕ АКТИВНА (НЕТ ПРОКРУТКИ ВЛЕВО)*/
+.news__slider-inner .slick-btn.slick-disabled { 
+  cursor: default; /* по дефолту курсор- РУКА стр. 353 - меняем на СТРЕЛКУ*/
+
+  /* Изначально ОБЕ КНОПКИ ЖЕЛТЫЕ стр. 351 - меняем на ЦВЕТ в Ps*/
+  background-color: #f9f9f9;
+  border: 1px solid #dadada;
+}
+
+/* Меняем цвет стрелки, когда кнопка не активна*/
+.news__slider-inner .slick-disabled::before { 
+  color: #9e9c9c; 
+}
+
+/*__________________Делаем дату на желтом квадратике_________________________*/
+.news__images {
+  position: relative;
+}
+.news__date {
+  position: absolute;
+           /*Двигаем Желтый Квадрат*/
+  top: 0%; 
+  left: 5%; 
+
+  width: 50px;
+  height: 55px;
+  background-color: #ffc222;
+  color: #f9f9f9;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 700;
+              /*Двигаем ЦИФРЫ внутри желтого квадрата*/
+  text-align: center;
+  padding-top: 30px;
+}
+/*___________________________________________________________________________*/
+.news__blog-title {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 500; 
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  color: #242424; 
+  padding: 12px 0px;
+}
+.news__blog-text {
+  letter-spacing: .1px;
+  color: #5e5e5e; 
+}
+
+/*__________________________________FOOTER___________________________________*/
+
+.footer__content {
+  background-color: #595959;
+  padding: 20px 0px 30px 0px;
+}
+
+/*_________________Все, что нужно для правильной работы FLEX-BOX*/
+.footer__inner {/*Даже если .footer__info и .footer__map вложены в 
+верхние классы (например .footer__content)
+ВСЕГДА СОЗДАЕМ РОДИТЕЛЯ [footer__inner]  - И ДЛЯ НЕГО ПИШЕМ FLEX-BOX*/
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer__info {
+  max-width: 360px;
+  height: 270px;
+}
+
+.footer__map {
+  padding-top: 10px;
+
+  max-width: 630px;
+  width: 100% /*иначе ШИРИНА МОЖЕТ НЕ ПРИМЕНИТЬСЯ*/
+}
+
+.footer__map iframe {
+  width: 100% 
+
+  /*ЕСЛИ КАРТА НЕ РАСШИРЯЕТСЯ ДО НУЖНЫХ РАЗМЕРОВ - ЗАДАЕМ В HTML <iframe>*/
+}
+/*______________________________________________________________*/
+.footer__inner .header__btn { /*Меняем стили для класса header__btn (заданного
+  ранее), для этого - прописывем, что тот класс НАХОДИТСЯ ВНУТРИ ДРУГОГО КЛАССА
+  (footer__inner)*/
+  float: none;
+  display: inline-block;
+}
+
+.footer__title {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 500; 
+  font-size: 16px;
+  line-height: 36px;
+  letter-spacing: 0.5px;
+  color: #fff; 
+  padding-bottom: 20px; 
+}
+.footer__text {
+  color: #fff; 
+  padding-bottom: 20px; 
+}
+
+.footer__list {
+  padding-top: 10px;
+}
+
+.footer__list li {
+  padding-top: 10px;
+}
+
+.footer__list li a {/* Если задать эти параметры в .footer__list li
+  ЦВЕТ НЕ ПОМЕНЯЕТСЯ!!!*/
+  font-family: 'Roboto', sans-serif; 
+  font-size: 16px;
+  letter-spacing: 0.25px;
+  color: #fff; 
+
+  padding-left: 33px; /*Резервируем место для иконок (по Ps)*/
+  position: relative;
+}
+/*_____________________Рисуем ИКОНКИ как ПСЕВДОЭЛЕМЕНТ____________________*/
+.footer__list li a::before {/*Определяем ОБЩИЕ СТИЛИ - для ВСЕХ ИКОНОК*/
+  content: '';
+  position: absolute;
+  left: 3px;
+
+  font-family: 'icomoon';
+  content: "\f003"; /*сначала ДЛЯ ВСЕХ СНОСОК - вставляем КОНВЕРТИК*/
+
+  color:  #ffc222;
+}
+
+.footer__list .footer__phone::before{
+  content: "\f095"; /*вставляем ТЕЛЕФОН*/
+}
+
+.footer__list .footer__adress::before{
+  content: "\f041";/*вставляем МЕТКУ*/
+}
+
+/*________________________________________________________________________*/
+.footer__copy {
+  background-color: #303030;
+}
+
+.copy__text {
+  font-weight: 400; 
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: #fff; 
+
+  text-align: center;
+  padding: 8px 0px;
+  /*Высота по Ps = 40; 40 - (line-height:24px) = 16;
+  16 / 2  = padding: 8px */
+}

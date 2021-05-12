@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+	 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	 <meta content="telephone=no" name="format-detection">
+
+	 <meta name="description" content="SimpleWeb™ - Агентство вебдевелопмента полного цикла. Все стадии разработки сайтов. | Продвижение в Google | Заказать услугу можно по тел. 063 60 66 925 или на нашем сайте!">
+   <meta name="keywords" content="Cоздать сайт Киев, Сайт Недорого Под Ключ, Рразработка интернет-магазинов">  
+
+     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	
+	 <title>ЛЕНДИНГ-js (Банкротство и Ликвидация Предприятия)</title>
+
+     <!-- _____________________________________________________________ -->
+      <!-- Подключаем шрифты Roboto, PTSerif -->
+     <link rel="preconnect" href="https://fonts.gstatic.com"> 
+
+     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,400;0,500;0,700;1,100;1,400;1,500&display=swap" rel="stylesheet">
+      <!--______________________________________________________________ -->
+
+    <!-- Подключаем, чтобы ВСЕ БРАУЗЕРЫ ПОНИМАЛИ CSS - ОДИНАКОВО -->
+     <link rel="stylesheet" type="text/css" href="css/normalize.css">
+
+     <!-- Подключаем для ИКОНОЧНЫХ ШРИФТОВ
+                                         (скачано https://icomoon.io/app) -->
+     <link rel="stylesheet" type="text/css" href="css/ico-fonts.css">
+
+     <!-- Подключаем FANCYBOX (скачано http://fancyapps.com)
+     для МОДАЛЬНОГО ОКНА -(по нажатию на "Бесплатная консультация"стр.54) -->
+   <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css">
+    <!--_______________________________________________________________  -->
+
+     <!-- Подключаем css-файл для СЛАЙДЕРА 
+     (https://kenwheeler.github.io/slick/)-->
+     <link rel="stylesheet" type="text/css" href="css/slick.css">
+     <!--______________________________________________________________  -->
+
+      <!-- Подключаем css-файлы для для СТИЛИЗАЦИИ РАССКРЫВАЮЩЕГОСЯ СПИСКА ФОРМЫ стр. 279 html
+                  (скопировано из https://dimox.name/jquery-form-styler/)-->
+     <link rel="stylesheet" type="text/css" href="css/jquery.formstyler.css">
+
+
+     <!--  <link rel="stylesheet" type="text/css" href="css/jquery.formstyler.theme.css"> -->
+       <!-- ОТКЛЮЧАЕМ перенеся нужные классы 
+       	со стилями в файл style.css - стр. 719 - 797 -->
+     <!-- _______________________________________________________________ -->
+
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <!-- ПОДКЛЮЧАЕМ ФАЙЛ СТИЛЕЙ ИЗ ПАПКИ css ПОДКЛЧАЕМ ПОСЛЕДНИМ!!
+              (ниже можно подключать только МЕДИАЗАПРОСЫ)-->
+      <!-- _____________________________________________________________ -->
+      
+      <link rel="stylesheet" type="text/css" href="css/media.css">
+                      <!-- ПОДКЛЮЧАЕМ МЕДИАЗАПРОСЫ)-->
+      <!-- _____________________________________________________________ -->   
+    </head>
+   <body>
+ 	 <main class="wrapper">
+ 		<header class="header">
+ 			<div class="header__top">
+ 				<div class="container">
+ 					<div class="header__contacts">
+ 						<a class="header__phone" href="tel:380636066925">
+ 						+38 (063) 60 66 925</a>
+ 						<a class="header__email" href="#">Sergey.pedko123@gmail.com</a>
+              <!-- ИЗНАЧАЛЬНЫЙ КОД_____________________________________ -->
+              <!-- <a class="header__btn" href="#">Бесплатная консультация</a> -->
+
+              <!-- КОД из FANCYBOX (МОДАЛЬНОЕ ОКНО)______________________ -->
+              <!-- 1) https://fancyapps.com/fancybox/3/  -->
+              <!-- 2) Заходим вверху (Documentation) - переходим слева (Inline) - переходим справа (View demo on CodePen) - 
+                  https://codepen.io/fancyapps/pen/zJgXyg?editors=1100
+
+              3) оттуда в ИЗНАЧАЛЬНЫЙ КОД ВСтавляем: ЧАСТЬ СТРОКИ 14 
+              <a data-fancybox data-src="#modal" href="javascript:;" -->
+
+           <a data-fancybox data-src="#modal" href="javascript:;"
+ 				   class="header__btn">Бесплатная консультация</a>
+
+              <!-- КОД из FANCYBOX (МОДАЛЬНОЕ ОКНО) СТРОКИ 17 -20 
+
+              <div style="display: none;" id="modal">
+                  <h2>Hello!</h2>
+                  <p>You are awesome!</p>
+              </div>  
+                                ВСТАВЛЯЕМ ПОСЛЕ </footer> -->     
+              <!-- ____________________________________________________ -->
+ 					</div>
+ 				</div>
+ 				
+ 			</div>
+ 			<div class="header__content">
+ 				<div class="container">
+ 					<div class="header__content-inner">
+ 						<div class="header__logo">
+ 							<a href="#">
+ 								<img src="img/logo.png" alt="Company Logo"></a>
+ 						</div>
+ 						<nav class="menu">
+
+              <div class="header__btn-media">
+                <span class="icon-bars"></span><!-- класс кнопки-бургера
+                 из ico-fonts.css (стр. 43)-->
+              </div>
+
+ 							<ul>
+ 								<li><a class="jquery-test" href="#">Главная</a></li>
+ 								<li><a href="#">О компании</a></li>
+ 								<li><a href="#">Услуги</a></li>
+ 								<li><a href="#">Контакты</a></li>
+ 							</ul>
+ 						</nav>
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</header>
+ 		<section class="slider">
+ 			<div class="container"> <!-- для единых max-width; margin; padding -->
+        
+ 				<div class="slider__inner"> <!-- для прописания СЛАЙДЕРА на jQuery 
+           в файле main.js 
+              ВНУТРИ <div class="slider__inner">
+          ПРОКРУЧИВАЮТСЯ:  <div class="slider__item"></div> - слайдер (1)
+                           <div class="slider__item"></div> - слайдер (2)
+                           <div class="slider__item"></div> - слайдер (3)
+                    </div> -->
+
+            <!-- _____ - слайдер (1)_____ -->
+ 					<div class="slider__item">
+ 				 		<div class="slider__item-content"> 
+ 							<div class="slider__title">КОМПЛЕКСНОЕ ЗАКРЫТИЕ
+ 							 ПРЕДПРИЯТИЯ</div>
+ 							<div class="slider__text">
+ 								Полное прекращение существования юридического лица с сохранением легальности всей предыдущей деятельности.
+ 							</div>
+
+ 							 <!--FANCYBOX (МОДАЛЬНОЕ ОКНО)
+               3) в ИЗНАЧАЛЬНЫЙ КОД ВСтавляем ЧАСТЬ СТРОКИ 14 
+              <a data-fancybox data-src="#modal" href="javascript:;" -->
+              <a data-fancybox data-src="#modal" href="javascript:;"
+ 							 class="slider__btn default-btn">Оставить заявку</a>
+
+ 						</div>
+ 					</div>
+
+ 					  <!-- _____ - слайдер (2)_____ -->
+ 					<div class="slider__item">
+ 						<div class="slider__item-content">
+ 							<div class="slider__title">Адвокатское сопровождение</div>
+ 							<div class="slider__text">
+ 								Мы гарантируем полное профессиональное обслуживание клиентов в заявленных сферах деятельности и соблюдение конфиденциальности.
+ 							</div>
+
+ 							 <!--FANCYBOX (МОДАЛЬНОЕ ОКНО)
+               3) в ИЗНАЧАЛЬНЫЙ КОД ВСтавляем ЧАСТЬ СТРОКИ 14 
+              <a data-fancybox data-src="#modal" href="javascript:;" -->
+ 							<a data-fancybox data-src="#modal" href="javascript:;"
+ 							 class="slider__btn default-btn">Оставить заявку</a>
+ 				
+ 						</div>
+ 					</div>
+
+ 					 <!-- _____ - слайдер (3)_____ -->
+ 					<div class="slider__item">
+ 						<div class="slider__item-content">
+ 							<div class="slider__title">Налоговый аудит</div>
+ 							<div class="slider__text">
+ 								Налоговый аудит проводят перед проведением налоговых проверок; при оценке возможных налоговых рисков; при оптимизации налогообложения.
+ 							</div>
+
+ 							
+ 							<a data-fancybox data-src="#modal" href="javascript:;"
+ 							 class="slider__btn default-btn">Оставить заявку</a>
+ 							
+ 						</div>
+ 					</div>
+ 				
+ 				</div>
+ 			</div>
+ 		</section>
+ 		     <!--________________________________________________________  -->
+
+ 		<section class="services">
+ 			<div class="container">
+ 				<div class="services__top">
+ 					<div class="services__title-box">
+ 						<div class="services__title">Наши Услуги</div>
+ 						<div class="services__text">
+ 							Комплексный подход к вашему вопросу, своевременная правовую помощь, представление интересов во всех судебных инстанциях.
+ 						</div>
+ 					</div>
+ 					<div class="services__btn">
+ 					<a href="#" >Показать все услуги</a>
+ 					</div>
+ 				</div>
+ 				<div class="services__items">
+
+ 				       	<!-- ________________Блок 1________________________ -->
+ 					<div class="services__item">
+ 						<img src="img/hammer.png" alt="hammer">
+ 						<div class="services__item-title">
+ 							Банкротство и ликвидация
+ 						</div>
+ 						<div class="services__item-text">
+ 							Полное прекращение существования юридического лица с сохранением легальности всей предыдущей деятельности
+ 						</div>
+ 						<div class="services__item-btn">
+ 							<a href="#" class="services__item-link">Подробнее</a>
+
+ 				       <!--FANCYBOX (МОДАЛЬНОЕ ОКНО) в ИЗНАЧАЛЬНЫЙ КОД ВСтавляем ЧАСТЬ СТРОКИ 14 <a data-fancybox data-src="#modal" href="javascript:;" -->
+ 							<a data-fancybox data-src="#modal" href="javascript:;"
+ 							 class="default-btn">Заказать</a>
+ 						</div>
+ 					</div>
+
+ 					 	<!-- ________________Блок 2________________________ -->
+ 					<div class="services__item">
+ 						<img src="img/temple.png" alt="temple">
+ 						<div class="services__item-title">
+ 							Адвокатское сопровождение
+ 						</div>
+ 						<div class="services__item-text">
+ 							Мы гарантируем полное профессиональное обслуживание клиентов в заявленных сферах деятельности и соблюдение конфиденциальности.
+ 						</div>
+ 						<div class="services__item-btn">
+ 							<a href="#" class="services__item-link">Подробнее</a>
+
+ 				       <!--FANCYBOX (МОДАЛЬНОЕ ОКНО) в ИЗНАЧАЛЬНЫЙ КОД ВСтавляем ЧАСТЬ СТРОКИ 14 <a data-fancybox data-src="#modal" href="javascript:;" -->
+ 							<a data-fancybox data-src="#modal" href="javascript:;"
+ 							 class="default-btn">Заказать</a>
+ 						</div>
+ 					</div>
+
+ 					 	<!-- ________________Блок 3________________________ -->
+ 					<div class="services__item">
+ 						<img src="img/briefcase.png" alt="briefcase">
+ 						<div class="services__item-title">
+ 							Налоговый аудит
+ 						</div>
+ 						<div class="services__item-text">
+ 							Налоговый аудит проводят перед проведением налоговых проверок; при оценке возможных налоговых рисков; при оптимизации налогообложения.
+ 						</div>
+ 						<div class="services__item-btn">
+ 							<a href="#" class="services__item-link">Подробнее</a>
+
+ 				       <!--FANCYBOX (МОДАЛЬНОЕ ОКНО) в ИЗНАЧАЛЬНЫЙ КОД ВСтавляем ЧАСТЬ СТРОКИ 14 <a data-fancybox data-src="#modal" href="javascript:;" -->
+ 							<a data-fancybox data-src="#modal" href="javascript:;"
+ 							 class="default-btn">Заказать</a>
+ 						</div>
+ 					</div>
+ 					
+ 				</div>
+ 			</div>
+ 		</section>
+ 		     <!--___________________________________________________________  -->
+
+ 		<section class="about">
+ 			<div class="container">
+ 				<div class="about__inner"> <!-- Задаем, чтобы ограничить ВЕСЬ БЛОК
+          ПО ШИРИНЕ  - чтобы влезло, ЕСЛИ ДОБАВЯТ ПОТОМ БОЛЬШЕ ТЕКСТА -->
+ 				  	<div class="about__title">О компании</div>
+ 					<div class="about__text">
+ 						Компания специализируется на оказании услуг в сфере корпоративного права, налогового консалтинга, представительства в судах, ликвидации и банкротства предприятий. На сегодняшний день, коллектив компании объединяет высокопрофессиональных экспертов.
+ 					</div>
+ 					<a href="#" class="about__btn default-btn">Узнать больше</a>
+ 				</div>
+ 			</div>
+ 		</section>
+ 		   <!-- ____________________________________________________________ -->
+
+ 		<section class="form">
+ 			<div class="container">
+ 				<div class="form__inner"> <!-- Чтобы Вставить
+                                        рис. Девушки как background__ -->
+ 					<div class="form__content">
+ 						<div class="form__title-box">
+ 							<div class="form__title">Получить консультацию</div>
+ 							<div class="form__text">
+ 								Комплексный подход к вашему вопросу, своевременная правовую помощь, представление интересов во всех судебных инстанциях.
+ 							</div>
+ 						</div>
+ 						<div class="form__box">
+ 							<form>
+ 								<div class="form__box-inner">
+ 									<div class="form__box-left">
+ 										<label> <!-- Тег <label> устанавливает связь между определенной МЕТКОЙ, в качестве которой обычно выступает ТЕКСТ, и ЭЛЕМЕНТОМ Ф-МЫ (<input>, <select>, <textarea>). Такая связь необходима, чтобы изменять значения элементов формы ПРИ НАЖАТИИ курсором мыши НА ТЕКСТ (а не на сам элемент).  -->
+ 											E-mail
+ 											<input type="text">
+ 										</label>
+ 										<label>
+ 											Контактный телефон
+ 											<input type="text">
+ 										</label>
+ 										<label>
+ 											ФИО
+ 											<input type="text">
+ 										</label>
+ 										<label>
+ 											Тема вопроса
+ 											<select>
+ 												<option value="Bопрос1">Bопрос1</option>
+ 												<option value="Bопрос2">Bопрос2</option>
+ 												<option value="Bопрос3">Bопрос3</option>
+ 												<option value="Bопрос4">Bопрос4</option>
+ 											</select>
+ 										</label>
+ 									</div>
+
+ 									<div class="form__box-right">
+ 										<label>
+ 											Сообщение
+ 											<textarea></textarea>
+ 										</label>
+
+ 										<button class="default-btn" type="submit">Получить консультацию</button>
+ 									</div>
+ 								</div>
+ 							</form>
+ 						</div>
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</section>
+ 		  <!-- _____________________________________________________________-->
+
+ 		<section class="advantages">
+ 			<div class="container">
+ 				<div class="advantages__inner">
+
+ 					 <!-- ________________Блок 1________________________ -->
+ 					<div class="advantages-item">
+ 						<div class="advantages__title">
+ 							Десятки добровольных ликвидаций ежемесячно
+ 						</div>
+ 						<div class="advantages__text">
+ 							Мы умеем минимизировать все риски в процессе добровольной ликвидации юридических лиц.
+ 						</div>
+ 					</div>
+
+ 					 <!-- ________________Блок 2________________________ -->
+ 					<div class="advantages-item">
+ 						<div class="advantages__title">
+ 							Отличное знание законов в сфере банкротства
+ 						</div>
+ 						<div class="advantages__text">
+ 							Позволяют нам эффективно отстаивать как интересы кредиторов, так и интересы собственников проблемной организации.
+ 						</div>
+ 					</div>
+
+ 					 <!-- ________________Блок 3________________________ -->
+ 					<div class="advantages-item">
+ 						<div class="advantages__title">
+ 							Большой опыт сопровождения банкротства
+ 						</div>
+ 						<div class="advantages__text">
+ 							Мы обладаем большим опытом сопровождения процедур банкротства предприятий.
+ 						</div>
+ 					</div>
+
+ 				</div>
+ 			</div>
+ 		</section>
+ 		  <!-- ______________________________________________________________ -->
+
+ 		<section class="news">
+ 			<div class="container">
+ 				<div class="news__top">
+ 					<div class="news__title-box">
+ 						<div class="news__title">Новости Компании</div>
+ 						<div class="news__text">
+ 							Комплексный подход к вашему вопросу, своевременная правовую помощь, представление интересов во всех судебных инстанциях.
+ 						</div>
+ 					</div>
+ 					<div class="news__btn">
+ 						<a href="#" >Показать все новости</a>
+ 					</div>
+ 				</div>
+
+ 				<div class="news__inner">
+ 							<!--Загоняем Слайдер и 2 Новости во FLEX-->   
+ 					<div class="news__slider">
+ 						<div class="news__slider-inner">
+ 									<!--То, что будет прокручиваться стрелками в квадратиках внизу - ДОБАВЛЯЕМ КЛАСС В jQuery стр. 26 -->
+
+                   <!-- СЛАЙДЕР 1 -->   
+ 							<div class="news__slider-item">		
+ 								<div class="news__slider-title">Банкротство и ликвидация предприятия в Украине</div>
+ 								<div class="news__slider-text">
+ 									«На сегодняшний день, коллектив компании объединяет высоко-профессиональных экспертов имеющих специализации в отдель-ных областях права. На сегодняшний день, коллектив компании объединяет высокопрофессиональных экспертов имеющих спе-циализации в отдельных областях права. На сегодняшний день, коллектив компании объединяет высокопрофессиональных эк-спертов имеющих специализации в отдельных областях права...»
+ 								</div>
+ 								<div class="news__slider-author">Андрей Ворошилов, генеральный директор комании BANKOM</div>
+ 							</div>
+
+                     <!-- СЛАЙДЕР 2 -->   
+ 							<div class="news__slider-item">	
+ 								<div class="news__slider-title">Банкротство и ликвидация предприятия в Украине</div>
+ 								<div class="news__slider-text">
+ 									«На сегодняшний день, коллектив компании объединяет высоко-профессиональных экспертов имеющих специализации в отдель-ных областях права. На сегодняшний день, коллектив компании объединяет высокопрофессиональных экспертов имеющих спе-циализации в отдельных областях права. На сегодняшний день, коллектив компании объединяет высокопрофессиональных эк-спертов имеющих специализации в отдельных областях права...»
+ 								</div>
+ 								<div class="news__slider-author">Андрей Ворошилов, генеральный директор комании BANKOM</div>
+ 							</div>
+
+                   <!-- СЛАЙДЕР 3 -->     
+ 							<div class="news__slider-item">		
+ 								<div class="news__slider-title">Банкротство и ликвидация предприятия в Украине</div>
+ 								<div class="news__slider-text">
+ 									«На сегодняшний день, коллектив компании объединяет высоко-профессиональных экспертов имеющих специализации в отдель-ных областях права. На сегодняшний день, коллектив компании объединяет высокопрофессиональных экспертов имеющих спе-циализации в отдельных областях права. На сегодняшний день, коллектив компании объединяет высокопрофессиональных эк-спертов имеющих специализации в отдельных областях права...»
+ 								</div>
+ 								<div class="news__slider-author">Андрей Ворошилов, генеральный директор комании BANKOM</div>
+ 							</div>
+ 						</div>
+ 					</div>
+
+ 					<a href="#" class="news__blog">
+ 						<div class="news__images">
+ 							<img src="img/news-1.jpg" alt="news-1"> 		
+ 							<div class="news__date">03.01</div>
+ 						</div>
+ 						<div class="news__blog-title">Новость компании</div>
+ 						<div class="news__blog-text">
+ 							На сегодняшний день, коллектив компании объединяет высокопрофессиональных экспертов имеющих специализации в отдельных областях права...»
+ 						</div>
+ 					</a>
+
+ 					<a href="#" class="news__blog">
+ 						<div class="news__images">
+ 							<img src="img/news-2.jpg" alt="news-2"> 		
+ 							<div class="news__date">05.01</div>
+ 						</div>
+ 						<div class="news__blog-title">Новость компании</div>
+ 						<div class="news__blog-text">
+ 							На сегодняшний день, коллектив компании объединяет высокопрофессиональных экспертов имеющих специализации в отдельных областях права...»
+ 						</div>
+ 					</div>
+ 				</a>
+
+ 			</div>
+ 		</section>
+ 		  <!-- _____________________________________________________________ -->
+
+ 		<footer class="footer">
+ 			<div class="footer__content">
+ 				<div class="container">
+ 					<div class="footer__inner">
+ 						<div class="footer__info">
+ 							<div class="footer__title">Комплексное закрытие предприятия</div>
+ 							<div class="footer__text">
+ 								Полное прекращение существования юридического лица с сохранением легальности всей предыдущей деятельности.
+ 							</div>
+
+ 							<a data-fancybox data-src="#modal" href="javascript:;"
+ 				       class="header__btn">Бесплатная консультация</a>
+
+ 							<ul class="footer__list">
+ 								<li><a class="footer__phone" href="tel:380636066925">+38 (063) 60 66 925</a></li>
+ 								<li><a href="#">Sergey.pedko123@gmail.com</a></li>
+ 								<li><a class="footer__adress" href="#">Киев, ул.Пушиной, 13</a></li>
+ 							</ul>
+
+ 						</div>
+ 						<div class="footer__map">
+ 								<!-- 1) Прописываем в поисковик адресс (Киев, ул.Пушиной, 13)
+                 2) Из поисковика заходим на  https://www.google.com/maps/
+                 3) На карте: А) Слева под фото "Поделиться"
+                              Б) в окне "Поделиться" кликаем:
+                                         1)"Встраивание карт"
+                                         2) "КОПИРОВАТЬ HTML" --> 
+ 							 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2540.124391996489!2d30.364922015731644!3d50.457408279476354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cc919501b4ef%3A0x71a476f68f4c8246!2z0YPQuy4g0KTQtdC-0LTQvtGA0Ysg0J_Rg9GI0LjQvdC-0LksIDEzLCDQmtC40LXQsiwgMDIwMDA!5e0!3m2!1sru!2sua!4v1610445481436!5m2!1sru!2sua" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+ 							<!-- убрал width="630" исправляем .footer__map и .footer__map iframe-->
+               
+              <!-- ВАЖНО!!! оставить внутри <iframe>  - width или height 
+                (остальное можно менять в CSS) иначе на странице будет МАЛЕНЬКИЙ КВАДРАТИК С НЕПРАВИЛЬНЫМИ РАЗМЕРАМИ (или google-maps вообще не покажет карту на сайте)--> 
+
+ 						</div>
+ 					</div>
+ 				</div>
+ 			</div>
+ 			<div class="footer__copy">
+ 				<div class="container">
+ 					<div class="copy__text">
+ 						© 2021 Developed by SERGEY PEDKO "SimpleWeb™". All rights reserved.
+ 					</div>
+ 				</div>
+ 			</div>
+ 		</footer> 
+         <!-- КОД из FANCYBOX (МОДАЛЬНОЕ ОКНО) СТРОКИ 17 -20  -->
+             <!-- <div style="display: none;" id="modal">
+                      <h2>Hello!</h2>
+                      <p>You are awesome!</p>
+                 </div> -->
+         <div id="modal">
+              <form>
+               	<input type="text" placeholder="Ваше Имя">
+               	<input type="text" placeholder="Ваш Телефон">
+               	<input type="submit" value="Отправить">
+              </form>
+         </div>
+    <!-- ________________________________________________________________ -->
+ 	
+   </main>
+	
+             <!-- 1) - Подключаем ГЛОБАЛЬНУЮ Бибилиотеку jQuery
+       (скопировано из https://developers.google.com/speed/libraries)-->
+                       
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+     <!--_____________________________________________________________  -->
+
+    <!-- 2) - Подключаем ЛОКАЛЬНУЮ БИБЛИОТЕКУ-FANCYBOX-->
+		<script src="js/jquery.fancybox.min.js"></script>
+    <!-- _____________________________________________________________ -->
+
+    <!-- 3) - Подключаем ЛОКАЛЬНУЮ БИБЛИОТЕКУ -скрипт для СЛАЙДЕРА (на jQuery)  (Глобальная бибилиотека jQuery -уже подключена)-->
+    <script src="js/slick.min.js"></script>
+    <!-- ____________________________________________________________ -->
+
+    <!-- 4) - Подключаем ЛОКАЛЬНУЮ БИБЛИОТЕКУ - скрипт для СТИЛИЗАЦИИ 
+    	РАССКРЫВАЮЩЕГОСЯ СПИСКА ФОРМЫ стр. 279 html (на jQuery)  (Глобальная бибилиотека jQuery -уже подключена)
+    (скопировано из https://dimox.name/jquery-form-styler/)-->
+    <script src="js/jquery.formstyler.min.js"></script>
+    <!-- ____________________________________________________________ -->
+
+    <!-- Подключаем файл в котором будем писать код на jQuery
+    	                 ПОДКЛЮЧАЕТСЯ ПОСЛЕДНИМ!!!-->      
+    <script src="js/main.js"></script>
+ </body>
+</html>
